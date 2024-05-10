@@ -5,6 +5,46 @@
   text-align: center;
 }
 
+.root-sub {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.personal-details {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 10px;
+}
+
+.personal-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* .person-input label input {
+  width: 100%;
+} */
+
+.personal-details h1 {
+  font-size: 2rem;
+}
+
+input {
+  background-color: white;
+  color: black;
+  border: #61dafbaa solid 3px;
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 1rem;
+  font-weight: 900;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

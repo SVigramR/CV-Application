@@ -7,7 +7,7 @@ function App() {
   const [personalData, setPersonalData] = useImmer({...personal})
 
   return (
-    <div>
+    <div className='root-sub'>
       <div className='userInput'>
       <PersonalInfo person={personalData} changePerson={setPersonalData} />
       </div>

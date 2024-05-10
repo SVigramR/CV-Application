@@ -15,18 +15,23 @@ function PersonalInfo({ person, changePerson }) {
 
     return (
     <>
-      <label>
-        FullName:{' '}
-      <input type="text" defaultValue={person.name} onChange={handleNameChange} />
-      </label>
-      <label>
-        Email:{' '}
-      <input type="email" defaultValue={person.email} onChange={handleEmailChange} />
-      </label>
-      <label>
-        Phone:{' '}
-      <input type="text" defaultValue={person.phone} onChange={handlePhoneChange} />
-      </label>
+    <div className="personal-details">
+        <h1>Personal Info</h1>
+        <div className="personal-input">
+        <label>
+           FullName:{' '}
+        <input type="text" defaultValue={person.name} onChange={handleNameChange} />
+        </label>
+        <label>
+            Email:{' '}
+        <input type="email" defaultValue={person.email} onChange={handleEmailChange} />
+        </label>
+        <label>
+           Phone:{' '}
+        <input type="text" defaultValue={person.phone} onChange={handlePhoneChange} />
+        </label>
+        </div>
+    </div>
     </>
 
     )
