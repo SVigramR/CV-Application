@@ -1,58 +1,49 @@
 import { TextField, Button } from "@mui/material";
 import { useImmer } from "use-immer";
+import { v4 as uuidv4 } from "uuid";
 // import educationSample from "./education_data";
 // import { useState } from "react";
 
 function AddEducation({education, updateEducation}) {
-    const [educationInput, setEducationInput] = useImmer({
-        "id": "",
+    const defaultObject = {
         "university": "",
         "course": "",
         "startDate": "",
         "endDate": "",
         "location": "",
-    })
+    }
+    const [educationInput, setEducationInput] = useImmer(defaultObject)
 
-    let currentInput = educationInput
-
-    function updateEducationData() {
-        updateEducation([
-            ...education, { ...currentInput}
-        ])
+    function updateEducationData(event) {
+        event.preventDefault()
+        const newEducation = {
+            ...educationInput,
+            id: uuidv4() // Generate UUID
+        };
+        updateEducation([...education, newEducation])
+        setEducationInput(defaultObject)
         console.log(education)
     }
 
-    function handleUniversity(event) {
-        setEducationInput(data => {data.university = event.target.value})
-    }
-
-    function handleCourse(event) {
-        setEducationInput(data => {data.course = event.target.value})
-    }
-
-    function handleStartDate(event) {
-        setEducationInput(data => {data.startDate = event.target.value})
-    }
-
-    function handleEndDate(event) {
-        setEducationInput(data => {data.endDate = event.target.value})
-    }
-
-    function handleLocation(event) {
-        setEducationInput(data => {data.location = event.target.value})
+    function handleChange(event, field) {
+        const { value } = event.target;
+        setEducationInput(prevState => ({
+            ...prevState,
+            [field]: value
+        }));
     }
 
     return (
-    <div className="education-details">
-        <TextField label="University" variant="outlined" onChange={handleUniversity} />
-        <TextField label="Course" variant="outlined" onChange={handleCourse} />
+    <form className="education-details">
+        <TextField label="University" value={educationInput.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
+        <TextField label="Course" value={educationInput.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} />
         <div className="duration">
-            <TextField label="Start Date" variant="outlined" onChange={handleStartDate} />
-            <TextField label="End Date" variant="outlined" onChange={handleEndDate} />
+            <TextField label="Start Date" value={educationInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
+            <TextField label="End Date" value={educationInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
         </div>
-        <TextField label="Location" variant="outlined" onChange={handleLocation} />
-        <Button variant="outlined" onClick={updateEducationData}>Add Education</Button>
-    </div>
+        <TextField label="Location" value={educationInput.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
+        <Button type="submit" variant="outlined" onClick={updateEducationData}>Add Education</Button>
+    </form>
     )
 }
 

@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 const educationSample = [
     {
-        "id": "",
+        "id": uuidv4(),
         "university": "University of Coventry",
         "course": "Bachelors in Cyber Security",
         "startDate": "September 2021",
@@ -8,7 +10,7 @@ const educationSample = [
         "location": "London, United Kingdom"
     },
     {
-        "id": "",
+        "id": uuidv4(),
         "university": "University of Munich",
         "course": "Masters in Cyber Security",
         "startDate": "December 2024",
