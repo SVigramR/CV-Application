@@ -3,10 +3,9 @@ import './App.css';
 import personal from './components/Personal/personal-data';
 import PersonalInfo from './components/Personal/person';
 import ResumeHeader from './components/PersonalPreview';
-import AddEducation from './components/Education/AddEducation';
 import educationSample from './components/Education/education_data';
 import EducationPreview from './components/EducationPreview';
-// import Education from './components/Education/education';
+import Education from './components/Education/education';
 // import { useState } from 'react';
 
 function App() {
@@ -17,8 +16,8 @@ function App() {
     <div className='root-sub'>
       <div className='userInput'>
       <PersonalInfo person={personalData} changePerson={setPersonalData} />
-      <AddEducation education={educationData} updateEducation={setEducationData} />
-      </div>
+      <Education educationData={educationData} setEducationData={setEducationData} />
+    </div>
       <div className="resume">
         <ResumeHeader personDetails={personalData} />
         <EducationPreview educationData={educationData} />

@@ -1,9 +1,13 @@
-function Education() {
+import AccordianTemplate from "../Mui Components/AccordianUI";
+import AddEducation from "./AddEducation";
+
+function Education(educationData, setEducationData) {
     
     return (
         <>
-            <h1>Education Details</h1>
-
+      <AccordianTemplate title={"Education Details"}>
+            <AddEducation education={educationData} updateEducation={setEducationData} />
+      </AccordianTemplate>
         </>
     )
 }

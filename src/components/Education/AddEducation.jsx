@@ -1,8 +1,6 @@
 import { TextField, Button } from "@mui/material";
 import { useImmer } from "use-immer";
 import { v4 as uuidv4 } from "uuid";
-// import educationSample from "./education_data";
-// import { useState } from "react";
 
 function AddEducation({education, updateEducation}) {
     const defaultObject = {
