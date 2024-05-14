@@ -1,12 +1,16 @@
-import AccordianTemplate from "../Mui Components/AccordianUI";
+import AccordianTemplate from "../Common/AccordianUI";
+import ListDetail from "../Common/ListUI";
 import AddEducation from "./AddEducation";
 
-function Education(educationData, setEducationData) {
+function Education({ educationData, setEducationData, currentMode, changeMode}) {
     
     return (
         <>
       <AccordianTemplate title={"Education Details"}>
-            <AddEducation education={educationData} updateEducation={setEducationData} />
+            {currentMode === 'show' ?
+              (<ListDetail data={educationData} updateData={setEducationData} currentMode={currentMode} changeMode={changeMode}/>) :
+              <AddEducation education={educationData} updateEducation={setEducationData} currentMode={currentMode} changeMode={changeMode}/>
+            }
       </AccordianTemplate>
         </>
     )

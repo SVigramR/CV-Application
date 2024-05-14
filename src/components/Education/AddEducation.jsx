@@ -2,7 +2,7 @@ import { TextField, Button } from "@mui/material";
 import { useImmer } from "use-immer";
 import { v4 as uuidv4 } from "uuid";
 
-function AddEducation({education, updateEducation}) {
+function AddEducation({education, updateEducation, currentMode, changeMode}) {
     const defaultObject = {
         "university": "",
         "course": "",
@@ -31,6 +31,12 @@ function AddEducation({education, updateEducation}) {
         }));
     }
 
+    function handleMode() {
+        if (currentMode !== 'show') {
+            changeMode('show')
+        }
+    }
+
     return (
     <form className="education-details">
         <TextField label="University" value={educationInput.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
@@ -41,6 +47,7 @@ function AddEducation({education, updateEducation}) {
         </div>
         <TextField label="Location" value={educationInput.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
         <Button type="submit" variant="outlined" onClick={updateEducationData}>Add Education</Button>
+        <Button variant="outlined" onClick={handleMode}>cancel</Button>
     </form>
     )
 }
