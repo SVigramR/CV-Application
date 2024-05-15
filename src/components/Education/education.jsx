@@ -9,7 +9,7 @@ function Education({ educationData, setEducationData, currentMode, changeMode}) 
       <AccordianTemplate title={"Education Details"}>
             {currentMode === 'show' ?
               (<ListDetail data={educationData} updateData={setEducationData} currentMode={currentMode} changeMode={changeMode}/>) :
-              <AddEducation education={educationData} updateEducation={setEducationData} currentMode={currentMode} changeMode={changeMode}/>
+              <AddEducation education={educationData} updateEducation={setEducationData} changeMode={changeMode}/>
             }
       </AccordianTemplate>
         </>

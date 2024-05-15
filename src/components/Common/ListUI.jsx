@@ -21,7 +21,7 @@ function ListDetail({ data, updateData, currentMode , changeMode}) {
     if (!editMode) {
         return (
             <>
-            <div className={"education"}>
+            <div className={"listContent"}>
             {data.map(data => (
                 <div key={data.id} onClick={() => updateEditMode(data)}>
                     <h1>{data.university}</h1>

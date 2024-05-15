@@ -2,7 +2,7 @@ import { TextField, Button } from "@mui/material";
 import { useImmer } from "use-immer";
 import { v4 as uuidv4 } from "uuid";
 
-function AddEducation({education, updateEducation, currentMode, changeMode}) {
+function AddEducation({education, updateEducation, changeMode}) {
     const defaultObject = {
         "university": "",
         "course": "",
@@ -21,6 +21,7 @@ function AddEducation({education, updateEducation, currentMode, changeMode}) {
         updateEducation([...education, newEducation])
         setEducationInput(defaultObject)
         console.log(education)
+        changeMode('show')
     }
 
     function handleChange(event, field) {
@@ -32,9 +33,7 @@ function AddEducation({education, updateEducation, currentMode, changeMode}) {
     }
 
     function handleMode() {
-        if (currentMode !== 'show') {
-            changeMode('show')
-        }
+        changeMode('show')
     }
 
     return (
