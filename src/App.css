@@ -9,6 +9,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  gap: 2rem;
+}
+
+.userInput {
+  width: 500px;
+  height: max-content;
 }
 
 .personal-details {

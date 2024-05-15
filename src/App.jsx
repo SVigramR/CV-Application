@@ -16,13 +16,14 @@ function App() {
   const [educationData, setEducationData] = useImmer(educationSample)
   const [experienceData, setExperienceData] = useImmer(experienceSample)
   const [show, setShow] = useState('show')
+  const [showExp, setShowExp] = useState('show')
 
   return (
     <div className='root-sub'>
       <div className='userInput'>
         <PersonalInfo person={personalData} changePerson={setPersonalData} />
         <Education educationData={educationData} setEducationData={setEducationData} currentMode={show} changeMode={setShow} type={"edu"}/>
-        <Experience experienceData={experienceData} setExperienceData={setExperienceData} currentMode={show} changeMode={setShow} type={"exp"}/>
+        <Experience experienceData={experienceData} setExperienceData={setExperienceData} currentMode={showExp} changeMode={setShowExp} type={"exp"}/>
       </div>
       <div className="resume">
         <ResumeHeader personDetails={personalData} />
