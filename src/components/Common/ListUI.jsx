@@ -1,9 +1,11 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 import EditEducation from "../Education/EditEducation";
+import { useImmer } from "use-immer";
 
 function ListDetail({ data, updateData, currentMode , changeMode}) {
     const [editMode, setEditMode] = useState(false)
+    const [toBeEdited, setToBeEdited] = useImmer('')
 
     function showDetails() {
         if (currentMode === 'show') {
@@ -11,8 +13,9 @@ function ListDetail({ data, updateData, currentMode , changeMode}) {
         }
     }
 
-    function updateEditMode() {
+    function updateEditMode(entry) {
         setEditMode(prevEditMode => !prevEditMode);
+        setToBeEdited(entry)
     }
 
     if (!editMode) {
@@ -20,7 +23,7 @@ function ListDetail({ data, updateData, currentMode , changeMode}) {
             <>
             <div className={"education"}>
             {data.map(data => (
-                <div key={data.id} onClick={updateEditMode}>
+                <div key={data.id} onClick={() => updateEditMode(data)}>
                     <h1>{data.university}</h1>
                     <p>{data.course}</p>
                 </div>
@@ -33,7 +36,7 @@ function ListDetail({ data, updateData, currentMode , changeMode}) {
         )
     } else {
         return (
-            <EditEducation education={data} updateEducation={updateData} editMode={editMode} setEditMode={setEditMode}/>
+            <EditEducation education={data} updateEducation={updateData} setEditMode={setEditMode} initialData={toBeEdited} />
         )
     }
 }

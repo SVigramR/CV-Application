@@ -1,30 +1,41 @@
 import { TextField, Button } from "@mui/material";
 import { useImmer } from "use-immer";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
-function EditEducation({ education, updateEducation, editMode, setEditMode }) {
-    const [educationInput, setEducationInput] = useImmer(education)
+function EditEducation({ education, updateEducation, setEditMode, initialData}) {
+    const [data, setData] = useImmer(initialData)
 
     function handleSave() {
-        const newEducation = { ...educationInput,
-            id: uuidv4() // Generate UUID
-        };
-        updateEducation([ ...education, newEducation])
-        console.log(education)
-        if (editMode === true) setEditMode(false)
+        console.log(data,)
+        if(JSON.stringify(initialData) === JSON.stringify(data)) {
+            console.log("Nothing Edited")
+            setEditMode(false)
+        } else {
+            updateEducation(
+                education.map((entry) => {
+                    if (entry.id === initialData.id) {
+                        return { ...data }
+                    } else return entry
+                })
+            )
+            setEditMode(false)
+        }
     }
 
     function handleDelete() {
-        if (editMode === true) setEditMode(false)
+        updateEducation(education.filter((entry) =>{
+            return entry !== initialData
+        }))
+        setEditMode(false)
     }
 
     function handleCancel() {
-        if (editMode === true) setEditMode(false)
+        setEditMode(false)
     }
 
     function handleChange(event, field) {
         const { value } = event.target;
-        setEducationInput(prevState => ({
+        setData(prevState => ({
             ...prevState,
             [field]: value
         }));
@@ -32,13 +43,13 @@ function EditEducation({ education, updateEducation, editMode, setEditMode }) {
 
     return (
         <div className="edit-education-details">
-            <TextField label="University" value={educationInput.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
-            <TextField label="Course" value={educationInput.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} />
+            <TextField label="University" defaultValue={data.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
+            <TextField label="Course" defaultValue={data.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} />
             <div className="duration">
-                <TextField label="Start Date" value={educationInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
-                <TextField label="End Date" value={educationInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
+                <TextField label="Start Date" defaultValue={data.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
+                <TextField label="End Date" defaultValue={data.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
             </div>
-            <TextField label="Location" value={educationInput.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
+            <TextField label="Location" defaultValue={data.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
             <div className="editButton">
                 <Button variant="outlined" onClick={handleDelete}>Delete</Button>
                 <Button variant="outlined" onClick={handleCancel}>Cancel</Button>
