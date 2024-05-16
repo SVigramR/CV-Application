@@ -3,7 +3,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function AccordianTemplate({ title, children }) {
     return (
-      <div>
+      <div className='accordian'>
         <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" >
           <h1>{title}</h1>

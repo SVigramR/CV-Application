@@ -1,8 +1,8 @@
 const personal = {
-    "name": "Palpatine",
-    "email": "palpatinethesith@gmail.com",
+    "name": "Linus Torvalds",
+    "email": "linustorvalds@gmail.com",
     "phone": "555-555-5555",
-    "jobTitle": "Emperor"
+    "jobTitle": "Computer Scientist"
 }
 
 export default personal;

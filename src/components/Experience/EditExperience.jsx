@@ -1,4 +1,4 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button} from "@mui/material";
 import { useImmer } from "use-immer";
 
 function EditExperience({ experience, updateExperience, setEditMode, initialData}) {
@@ -41,14 +41,14 @@ function EditExperience({ experience, updateExperience, setEditMode, initialData
     }
 
     return (
-        <div className="edit-education-details">
-            <TextField label="Company" defaultValue={data.company} variant="outlined" onChange={(e) => handleChange(e, 'company')} />
-            <TextField label="Position" defaultValue={data.position} variant="outlined" onChange={(e) => handleChange(e, 'position')} />
+        <div className="edit-details flex-column">
+            <TextField label="Company" defaultValue={data.company} variant="outlined" onChange={(e) => handleChange(e, 'company')} fullWidth/>
+            <TextField label="Position" defaultValue={data.position} variant="outlined" onChange={(e) => handleChange(e, 'position')} fullWidth/>
             <div className="duration">
-                <TextField label="Start Date" defaultValue={data.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
-                <TextField label="End Date" defaultValue={data.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
+                <TextField label="Start Date" defaultValue={data.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} fullWidth/>
+                <TextField label="End Date" defaultValue={data.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} fullWidth/>
             </div>
-            <TextField label="Description" defaultValue={data.description} variant="outlined" onChange={(e) => handleChange(e, 'description')} />
+            <TextField label="Description" defaultValue={data.description} variant="outlined" onChange={(e) => handleChange(e, 'description')} fullWidth/>
             <div className="editButton">
                 <Button variant="outlined" onClick={handleDelete}>Delete</Button>
                 <Button variant="outlined" onClick={handleCancel}>Cancel</Button>

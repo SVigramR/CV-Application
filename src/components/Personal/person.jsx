@@ -24,10 +24,10 @@ function PersonalInfo({ person, changePerson }) {
     <div className="personal-details">
         <h1>Personal Info</h1>
         <div className="personal-input">
-        <TextField label="Name" variant="outlined" defaultValue={person.name} onChange={handleNameChange} />
-        <TextField label="Email" variant="outlined" defaultValue={person.email} onChange={handleEmailChange} />
-        <TextField label="Phone" variant="outlined" defaultValue={person.phone} onChange={handlePhoneChange} />
-        <TextField label="Job Title" variant="outlined" defaultValue={person.jobTitle} onChange={handleJobTitleChange} />
+        <TextField label="Name" variant="outlined" defaultValue={person.name} onChange={handleNameChange} fullWidth/>
+        <TextField label="Email" variant="outlined" defaultValue={person.email} onChange={handleEmailChange} fullWidth/>
+        <TextField label="Phone" variant="outlined" defaultValue={person.phone} onChange={handlePhoneChange} fullWidth/>
+        <TextField label="Job Title" variant="outlined" defaultValue={person.jobTitle} onChange={handleJobTitleChange} fullWidth/>
         </div>
     </div>
     </>

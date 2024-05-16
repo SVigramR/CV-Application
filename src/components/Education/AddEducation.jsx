@@ -38,13 +38,13 @@ function AddEducation({education, updateEducation, changeMode}) {
 
     return (
     <form className="education-details">
-        <TextField label="University" value={educationInput.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
-        <TextField label="Course" value={educationInput.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} />
+        <TextField label="University" value={educationInput.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} fullWidth/>
+        <TextField label="Course" value={educationInput.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} fullWidth/>
         <div className="duration">
-            <TextField label="Start Date" value={educationInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
-            <TextField label="End Date" value={educationInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
+            <TextField label="Start Date" value={educationInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} fullWidth/>
+            <TextField label="End Date" value={educationInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} fullWidth/>
         </div>
-        <TextField label="Location" value={educationInput.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
+        <TextField label="Location" value={educationInput.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} fullWidth/>
         <Button type="submit" variant="outlined" onClick={updateEducationData}>Add Education</Button>
         <Button variant="outlined" onClick={handleMode}>cancel</Button>
     </form>

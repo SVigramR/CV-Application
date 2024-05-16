@@ -42,14 +42,14 @@ function EditEducation({ education, updateEducation, setEditMode, initialData}) 
     }
 
     return (
-        <div className="edit-education-details">
-            <TextField label="University" defaultValue={data.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} />
-            <TextField label="Course" defaultValue={data.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} />
+        <div className="edit-details flex-column">
+            <TextField label="University" defaultValue={data.university} variant="outlined" onChange={(e) => handleChange(e, 'university')} fullWidth/>
+            <TextField label="Course" defaultValue={data.course} variant="outlined" onChange={(e) => handleChange(e, 'course')} fullWidth/>
             <div className="duration">
-                <TextField label="Start Date" defaultValue={data.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
-                <TextField label="End Date" defaultValue={data.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
+                <TextField label="Start Date" defaultValue={data.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} fullWidth/>
+                <TextField label="End Date" defaultValue={data.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} fullWidth/>
             </div>
-            <TextField label="Location" defaultValue={data.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} />
+            <TextField label="Location" defaultValue={data.location} variant="outlined" onChange={(e) => handleChange(e, 'location')} fullWidth/>
             <div className="editButton">
                 <Button variant="outlined" onClick={handleDelete}>Delete</Button>
                 <Button variant="outlined" onClick={handleCancel}>Cancel</Button>

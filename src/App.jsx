@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className='root-sub'>
-      <div className='userInput'>
+      <div className='userInput flex-column'>
         <PersonalInfo person={personalData} changePerson={setPersonalData} />
         <Education educationData={educationData} setEducationData={setEducationData} currentMode={show} changeMode={setShow} type={"edu"}/>
         <Experience experienceData={experienceData} setExperienceData={setExperienceData} currentMode={showExp} changeMode={setShowExp} type={"exp"}/>

@@ -38,13 +38,13 @@ function AddExperience({experience, updateExperience, changeMode}) {
 
     return (
     <form className="education-details">
-        <TextField label="Company" value={experienceInput.company} variant="outlined" onChange={(e) => handleChange(e, 'company')} />
-        <TextField label="Position" value={experienceInput.position} variant="outlined" onChange={(e) => handleChange(e, 'position')} />
+        <TextField label="Company" value={experienceInput.company} variant="outlined" onChange={(e) => handleChange(e, 'company')} fullWidth/>
+        <TextField label="Position" value={experienceInput.position} variant="outlined" onChange={(e) => handleChange(e, 'position')} fullWidth/>
         <div className="duration">
-            <TextField label="Start Date" value={experienceInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} />
-            <TextField label="End Date" value={experienceInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} />
+            <TextField label="Start Date" value={experienceInput.startDate} variant="outlined" onChange={(e) => handleChange(e, 'startDate')} fullWidth/>
+            <TextField label="End Date" value={experienceInput.endDate} variant="outlined" onChange={(e) => handleChange(e, 'endDate')} fullWidth/>
         </div>
-        <TextField label="Description" value={experienceInput.description} variant="outlined" onChange={(e) => handleChange(e, 'description')} />
+        <TextField label="Description" value={experienceInput.description} variant="outlined" onChange={(e) => handleChange(e, 'description')} fullWidth/>
         <Button type="submit" variant="outlined" onClick={updateEducationData}>Add Experience</Button>
         <Button variant="outlined" onClick={handleMode}>cancel</Button>
     </form>

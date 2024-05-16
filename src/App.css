@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -10,11 +11,15 @@
   align-items: flex-start;
   justify-content: center;
   gap: 2rem;
+  background-color: grey;
 }
 
 .userInput {
   width: 500px;
-  height: max-content;
+  min-height: max-content;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .5);
+  gap: 1rem;
+  background-color: white;
 }
 
 .personal-details {
@@ -22,6 +27,7 @@
   flex-direction: column;
   width: 400px;
   padding: 10px;
+  background-color: white;
 }
 
 .personal-input {
@@ -32,24 +38,37 @@
   margin-top: 1rem;
 }
 
-/* .person-input label input {
+.listContent{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addEntry{
+  margin-top: 20px;
+}
+
+.edit-details {
+  gap: 16px;
+}
+
+.editButton {
+  display: flex;
+  gap: 10px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accordian {
   width: 100%;
-} */
+}
 
 .personal-details h1 {
   font-size: 2rem;
-}
-
-input {
-  background-color: white;
-  color: black;
-  border: #61dafbaa solid 3px;
-  border-radius: 10px;
-  padding: 3px;
-  font-size: 1rem;
-  font-weight: 900;
-  width: 250px;
-  margin-bottom: 10px;
 }
 
 .education-details {
@@ -65,10 +84,47 @@ input {
   display: flex;
 }
 
-.card {
-  padding: 2em;
+.header-info {
+  margin-top: 10px;
+  font-size: 20px;
+  display: flex;
+  gap: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.headerIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.educationContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: space-around;
+}
+
+.educationHeader, .experienceHeader {
+  background-color: #7e81c0;
+  margin: 1rem;
+  padding: 10px;
+}
+
+.durationPreview {
+  display: flex;
+  gap: 10px;
+}
+
+.expright {
+  width: 50%;
+}
+
+.expright p {
+  font-size: 14px;
+ font-weight: 500;
 }

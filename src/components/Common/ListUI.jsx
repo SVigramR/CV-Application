@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import { useState } from "react";
 import EditEducation from "../Education/EditEducation";
 import { useImmer } from "use-immer";
@@ -24,11 +24,14 @@ function ListDetail({ data, updateData, currentMode , changeMode, type}) {
             return (
                 <>
                 <div className={"listContent"}>
-                {data.map(data => (
+                {data.map((data, index) => (
+                    <>
                     <div key={data.id} onClick={() => updateEditMode(data)}>
                         <h1>{data.university}</h1>
                         <p>{data.course}</p>
                     </div>
+                    {index + 1 !== data.length ? <Divider component="div" /> : null }
+                    </>
                 ))}
                 </div>
                 <div className="addEntry">
@@ -40,11 +43,14 @@ function ListDetail({ data, updateData, currentMode , changeMode, type}) {
             return (
                 <>
                 <div className={"listContent"}>
-                {data.map(data => (
-                    <div key={data.id} onClick={() => updateEditMode(data)}>
+                {data.map((data, index) => (
+                        <>
+                        <div key={data.id} onClick={() => updateEditMode(data)}>
                         <h1>{data.company}</h1>
                         <p>{data.position}</p>
-                    </div>
+                        </div>
+                        {index + 1 !== data.length ? <Divider component="div" /> : null }
+                        </>
                 ))}
                 </div>
                 <div className="addEntry">
